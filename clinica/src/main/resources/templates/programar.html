@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programar Cita - Clínica Ricardo Palma</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" th:href="@{/styles.css}">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" th:href="@{/}"><i class="fas fa-hospital-user me-2"></i>CLÍNICA RICARDO PALMA</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" th:href="@{/}">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/#nosotros}">Nosotros</a></li>
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" th:href="@{/programar}">Reservar Cita</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/mis-citas}">Mis Citas</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/login}">Iniciar Sesión</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/register}">Registrarse</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="py-5 bg-light">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="appointment-form">
+                        <h2 class="text-center mb-4 fw-bold">Programar Nueva Cita</h2>
+                        <form id="appointmentForm">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label">Especialidad</label>
+                                    <select class="form-select" id="specialty" required>
+                                        <option value="">Seleccione especialidad...</option>
+                                        <option>Medicina General</option>
+                                        <option>Pediatría</option>
+                                        <option>Cardiología</option>
+                                        <option>Ginecología</option>
+                                        <option>Dermatología</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Médico Especialista</label>
+                                    <select class="form-select" id="doctor" required disabled>
+                                        <option value="">Primero elija especialidad</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Fecha</label>
+                                    <input type="date" class="form-control" id="date" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Horario Disponible</label>
+                                    <select class="form-select" id="time" required>
+                                        <option value="">Seleccione horario...</option>
+                                        <option>08:00 AM</option>
+                                        <option>09:30 AM</option>
+                                        <option>11:00 AM</option>
+                                        <option>03:00 PM</option>
+                                        <option>04:30 PM</option>
+                                    </select>
+                                </div>
+                                <div class="col-12 mt-4 text-center">
+                                    <button type="submit" class="btn btn-primary-custom w-100">Confirmar Reserva</button>
+                                </div>
+                            </div>
+                        </form>
+
+                        <div id="confirmation-msg" class="mt-4 alert alert-success text-center" style="display: none;">
+                            <i class="fas fa-check-circle me-2"></i> ¡Cita reservada con éxito! Se ha enviado un correo con los detalles.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script th:src="@{/programar.js}"></script>
+</body>
+</html>

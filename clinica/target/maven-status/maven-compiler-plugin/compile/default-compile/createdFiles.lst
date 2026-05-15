@@ -1,0 +1,5 @@
+com\ricardopalma\clinica\ClinicaApplication.class
+com\ricardopalma\clinica\Usuario.class
+com\ricardopalma\clinica\Paciente.class
+com\ricardopalma\clinica\PacienteController.class
+com\ricardopalma\clinica\UsuarioController.class

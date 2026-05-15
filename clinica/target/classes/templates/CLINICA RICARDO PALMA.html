@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clínica Ricardo Palma - Sistema de Citas</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" th:href="@{/styles.css}">
+</head> 
+<body>
+    <!-- Pantalla de carga -->
+    <div id="splashScreen" class="splash-screen">
+        <div class="text-center">
+            <div class="spinner-border text-light" role="status">
+                <span class="visually-hidden">Cargando...</span>
+            </div>
+            <h1 class="mt-4 fw-bold">Clínica Ricardo Palma</h1>
+            <p class="lead">TU SALUD ES LO PRIMERO...</p>
+        </div>
+    </div>
+
+    <div id="mainContent" class="d-none">
+        <!-- Navegación -->
+        <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+            <div class="container">
+                <a class="navbar-brand" th:href="@{/}"><i class="fas fa-hospital-user me-2"></i>CLÍNICA RICARDO PALMA</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" th:href="@{/#inicio}">Inicio</a></li>
+                        <li class="nav-item"><a class="nav-link" th:href="@{/#nosotros}">Nosotros</a></li>
+                        <li class="nav-item"><a class="nav-link" th:href="@{/programar}">Reservar Cita</a></li>
+                        <li class="nav-item"><a class="nav-link btn btn-outline-light ms-lg-3 px-4" th:href="@{/mis-citas}">Mis Citas</a></li>
+                        <li class="nav-item"><a class="nav-link" th:href="@{/login}">Iniciar Sesión</a></li>
+                        <li class="nav-item"><a class="nav-link" th:href="@{/register}">Registrarse</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <section id="inicio" class="hero-section">
+            <div class="container p-0">
+                <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+                    <div class="carousel-inner rounded-4 overflow-hidden shadow-lg">
+                        <div class="carousel-item active">
+                            <img th:src="@{/img/sesiones-clinicas.jpg}" class="d-block w-100" >
+                        </div>
+                        <div class="carousel-item">
+                            <img th:src="@{/img/sesiones-clinicas.jpg}" class="d-block w-100" >
+                        </div>
+                        <div class="carousel-item">
+                            <img th:src="@{/img/sesiones-clinicas.jpg}" class="d-block w-100" >
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Nosotros / Problemática Solucionada -->
+        <section id="nosotros" class="py-5">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h2 class="section-title">¿Por qué elegir nuestra plataforma?</h2>
+                    <p class="text-muted">Hemos digitalizado nuestros procesos para ofrecerte una experiencia superior.</p>
+                </div>
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="card card-custom h-100 p-4 text-center">
+                            <i class="fas fa-clock fa-3x text-secondary mb-3"></i>
+                            <h4>Ahorro de Tiempo</h4>
+                            <p class="text-muted">Reduce los tiempos de espera en un 25% gracias a nuestra gestión automatizada.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card card-custom h-100 p-4 text-center">
+                            <i class="fas fa-user-check fa-3x text-secondary mb-3"></i>
+                            <h4>Atención Personalizada</h4>
+                            <p class="text-muted">Acceso centralizado a tu historial para diagnósticos más precisos y ágiles.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card card-custom h-100 p-4 text-center">
+                            <i class="fas fa-mobile-alt fa-3x text-secondary mb-3"></i>
+                            <h4>Autoservicio</h4>
+                            <p class="text-muted">Gestiona tus citas 24/7 desde cualquier dispositivo móvil o computadora.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <div class="container text-center">
+                <div class="mb-4">
+                    <h4 class="fw-bold">CLÍNICA RICARDO PALMA</h4>
+                    <p>Innovación para el bienestar integral del paciente.</p>
+                </div>
+                <div class="social-links mb-4">
+                    <a href="#" class="text-white mx-2"><i class="fab fa-facebook fa-lg"></i></a>
+                    <a href="#" class="text-white mx-2"><i class="fab fa-instagram fa-lg"></i></a>
+                    <a href="#" class="text-white mx-2"><i class="fab fa-linkedin fa-lg"></i></a>
+                </div>
+                <hr class="bg-light opacity-25">
+                <p class="small mb-0">&copy; 2026 Derechos Reservados</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script th:src="@{/script.js}"></script>
+</body>
+</html>
